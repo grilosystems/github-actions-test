@@ -4,9 +4,9 @@ jobs:
   run-shell-command:
     runs-on: ubuntu-latest
     steps:
-      - name: Imprime un String
-        run: echo "Hola Mundo"
-      - name: Script multilinea
+      - name: echo a string
+        run: eccho "Hola Mundo"
+      - name: multiline script
         run: |
           node -v
           npm -v
