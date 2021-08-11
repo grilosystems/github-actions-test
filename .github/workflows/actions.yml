@@ -1,0 +1,13 @@
+name: Actions Workflow
+on: [push]
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: simple JS Action
+        id: saludo
+        uses: actions/hola-mundo-js-actionsgs@v1
+        with:
+          quien-saluda: Marquito
+      - name: Tiempo de Saludo
+        run: echo "${{ steps.saludo.outputs.time }}"
