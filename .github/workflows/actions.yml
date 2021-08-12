@@ -1,13 +1,13 @@
 name: Actions Workflow
 on: [push]
 jobs:
-  run-github-actions:
+  run_hola_mundo_job:
     runs-on: ubuntu-latest
     steps:
-      - name: simple JS Action
-        id: saludo
+      - name: Hola mundo
+        id: hello
         uses: grilosystems/hola-mundo-js-actionsgs@v1
         with:
-          quien-saluda: Marquito
+          who-to-greet: Marquito
       - name: Tiempo de Saludo
-        run: echo "${{ steps.saludo.outputs.time }}"
+        run: echo "${{ steps.hello.outputs.time }}"
