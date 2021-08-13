@@ -4,9 +4,9 @@ jobs:
   run_hola_mundo_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Hola mundo
+      - name: Action JS
         id: hello
-        uses: grilosystems/hola-mundo-js-actionsgs@v1
+        uses: actions/hello-world-javascript-action@v1
         with:
           who-to-greet: Marquito
       - name: Tiempo de Saludo
