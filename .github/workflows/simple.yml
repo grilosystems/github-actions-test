@@ -1,16 +1,16 @@
-name: Shell Commands
+name: Comandos de consola
 on: [push]
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
     steps:
-      - name: paso inicial
+      - name: mensaje
         run: echo "Terminado"
-      - name: software versions
+      - name: versiones
         run: |
           node -v
           npm -v
-      - name: comando python
+      - name: script de python
         run: |
           import platform
           print(platform.processor())
