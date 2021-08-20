@@ -1,25 +1,25 @@
-# name: Actions Schedule
-# on: 
-#   schedule:
-#     - cron: "0 0 1 */6 *"
-# jobs:
-#   run_hola_mundo_job:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Lista de archivos
-#         run: |
-#           pwd
-#           ls -a
-#       - name: Checkout
-#         uses: actions/checkout@v1
-#       - name: Lista de archivos despues del Checkout
-#         run: |
-#           pwd
-#           ls -a
-#       - name: Action JS
-#         id: hello
-#         uses: actions/hello-world-javascript-action@v1
-#         with:
-#           who-to-greet: Marquito
-#       - name: Tiempo de Saludo
-#         run: echo "${{ steps.hello.outputs.time }}"
+name: Actions Schedule
+on: 
+  schedule:
+    - cron: "0 0 1 */6 *"
+jobs:
+  run_hola_mundo_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lista de archivos
+        run: |
+          pwd
+          ls -a
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Lista de archivos despues del Checkout
+        run: |
+          pwd
+          ls -a
+      - name: Action JS
+        id: hello
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: Marquito
+      - name: Tiempo de Saludo
+        run: echo "${{ steps.hello.outputs.time }}"
