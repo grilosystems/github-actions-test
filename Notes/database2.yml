@@ -1,0 +1,38 @@
+name: MySQL CI
+env:
+  MYSQL_DATABASE: grilosys_devops
+  MYSQL_USER: grilosys_devopstest
+  MYSQL_PASSWORD: hao~IUDxyXeL7
+  MYSQL_HOST: mysql-master
+  NODE_ENV: test
+on:
+  push:
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    container:
+      image: node:14.5.0-alpine
+    services:
+      mysql-master:
+        image: mysql:5.7
+        ports:
+          - 3306/tcp
+        env:
+          MYSQL_DATABASE: ${{ env.MYSQL_DATABASE }}
+          MYSQL_USER: ${{ env.MYSQL_USER }}
+          MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
+          MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_PASSWORD }}
+        options: >-
+          --name=mysql-master
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+    steps:
+      - uses: actions/checkout@v2
+      - name: Instalando paquetes
+        run: 'npm ci'
+      - name: SetUp Database
+        run: 'npm run migrations'
+      - name: Tests
+        run: 'npm run test'
