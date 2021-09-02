@@ -1,7 +1,9 @@
 name: Actions Schedule
 on: 
-  schedule:
-    - cron: "0 0 1 */6 *"
+  repository_dispatch:
+    types: [build]
+  # schedule:
+  #   - cron: "0 0 1 */6 *"
 jobs:
   run_hola_mundo_job:
     runs-on: ubuntu-latest
